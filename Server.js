@@ -1,5 +1,8 @@
 // Libraries
 const express = require('express')
+const helmet = require('helmet')
+const compression = require('compression')
+const morgan = require('morgan')
 // utils
 const { db } = require('./db/db.config')
 // Models
@@ -42,6 +45,16 @@ class Server{
 
     middlewares(){
         this.app.use( express.json() )
+
+        // Add security headers & compression the middlewares
+        if( process.env.NODE_ENV === 'production' ){
+            this.app.use( helmet() )
+            this.app.use( compression() )
+            // log incomming request
+            this.app.use( morgan('combined') )
+        }else{
+            this.app.use( morgan('dev') )
+        }        
     }
 
     routes(){

@@ -10,15 +10,14 @@ const db = new Sequelize({
     database: process.env.DB,
     logging: false,
     // Esta opción nos conecta al https
-/*     dialectOptions:
+    dialectOptions:
     process.env.NODE_ENV === 'production'?
-    {
-        
-        ssl:{
-            required: true,
-            rejectUnathorized: false
-        }
-    } : { } */
+        {
+            ssl:{
+                required: true,
+                rejectUnauthorized: false
+            }
+        } : { }
 })
 
 module.exports = {
