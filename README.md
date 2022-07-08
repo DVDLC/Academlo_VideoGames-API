@@ -14,7 +14,7 @@
 ## Configuraciones iniciales:
 
 - *Recontruir archivos de node* - **npm init -y**
-- *Inicializar el servidor* - **npm start**
+- *Inicializar el servidor* - **npm run start:dev**
 
 
 ### Datos adicionales: 
